@@ -17,13 +17,13 @@ function [ u1, u2 ] = controller(~, state, des_state, params)
 % u1 = 0;
 % u2 = 0;
 
-kvz = 10;
+kvz = 15;
 kpz = 80;
 
 kvy = 5;
 kpy = 20;
 
-kvphi = 10;
+kvphi = 30;
 kpphi = 1000;
 
 u1 = params.mass*(params.gravity+des_state.acc(2) + kvz*(des_state.vel(2)-state.vel(2)) + kpz*(des_state.pos(2)-state.pos(2)));
