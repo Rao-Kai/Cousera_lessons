@@ -36,13 +36,19 @@ r2_des_ddot = des_state.acc(2) + kdy*(des_state.vel(2)-state.vel(2)) + kpy*(des_
 r3_des_ddot = des_state.acc(3) + kdz*(des_state.vel(3)-state.vel(3)) + kpz*(des_state.pos(3)-state.pos(3));
 
 % 根据14式计算
-phi_des = (1/params.gravity)*(r1_des_ddot*des_state.yaw - r2_des_ddot);
-theta_des = (1/params.gravity)*(r1_des_ddot + r2_des_ddot*des_state.yaw);
+phi_des = (1/params.gravity)*(r1_des_ddot*sin(des_state.yaw) - r2_des_ddot*cos(des_state.yaw));
+theta_des = (1/params.gravity)*(r1_des_ddot*cos(des_state.yaw) + r2_des_ddot*sin(des_state.yaw));
 
 
 % Thrust F就是u1 (pdf中的13式)
 % F = 0;
 F = params.mass*(params.gravity + r3_des_ddot);
+if F<params.minF
+    F=params.minF;
+end
+if F>params.maxF
+    F=params.maxF;
+end
 
 % Moment M就是u2 (pdf中的10式) p q r是三个角的角速度，用state.omega = [p; q; r]表示
 % 正如pdf第5页说到，控制时通常考虑无人机的nominal hover state, 即roll 和 pitch很小, 那么p和q的desir就设定为0
