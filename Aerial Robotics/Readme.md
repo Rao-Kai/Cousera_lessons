@@ -12,3 +12,5 @@ https://www.coursera.org/learn/robotics-flight?specialization=robotics
 assignment1 实现对无人机的1D控制(高度控制)
 
 assignment2 实现对无人机的2D控制(跟踪二维平面轨迹)
+
+assignment3 实现对无人机的3D控制，控制对象可为给定路径点自主生成的轨迹
