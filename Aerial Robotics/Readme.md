@@ -17,7 +17,7 @@ assignment2 实现对无人机的2D控制(跟踪二维平面轨迹)
 
 assignment3 实现对无人机的3D控制，跟踪对象可为给定路径点后自主生成的轨迹
 
-##学习参考链接
+## 学习参考链接
 https://blog.csdn.net/qq_39537898/article/details/104175348
 
 https://blog.csdn.net/qq_39537898/article/details/104199327
